@@ -35,7 +35,7 @@ export async function getStaticProps(context) {
   // will receive `posts` as a prop at build time
   return {
     props: {
-      weather,
+      data,
     },
   }
 }
