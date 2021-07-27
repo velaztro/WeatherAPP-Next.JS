@@ -24,7 +24,7 @@ export default function Home(props) {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
   // Call an external API endpoint to get data.
   // You can use any data fetching library
   const res = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=32.5027&lon=-117.00371&appid=2431d269d204f0fc4f08ac1ce09df0a5')
