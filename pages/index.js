@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useState } from 'react'
 
-export default function Home(props) {
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -25,9 +25,10 @@ export default function Home(props) {
 }
 
 export async function getStaticProps(context) {
+
   // Call an external API endpoint to get data.
   // You can use any data fetching library
-  const res = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=32.5027&lon=-117.00371&appid=2431d269d204f0fc4f08ac1ce09df0a5')
+  const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=32.5027&lon=-117.00371&units=metric&appid=${process.env.API}`)
   const data = await res.json()
   console.log(data);
 
