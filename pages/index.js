@@ -1,8 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { useState } from 'react'
-import { useEffect } from 'react/cjs/react.development';
+import { useState, useEffect } from 'react'
 
 export default function Home(data) {
 
@@ -66,7 +65,7 @@ export default function Home(data) {
 
 export async function getStaticProps() {
 
-  const fetch = require('node-fetch-with-proxy');
+  //const fetch = require('node-fetch-with-proxy');
   // Call an external API endpoint to get data.
   // You can use any data fetching library
   const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=32.5027&lon=-117.00371&units=metric&appid=${process.env.API}`)
