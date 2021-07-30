@@ -19,9 +19,6 @@ export default function Home(data) {
     toggle();
   })
 
-  console.log(data.data.weather[0].description)
-
-
   return (
     <div className={` ${night ? styles.night : styles.day} `}>
       <Head>
@@ -56,9 +53,6 @@ export default function Home(data) {
         </div>
 
       </main>
-
-      <footer className={styles.footer}>
-      </footer>
     </div>
   )
 }
