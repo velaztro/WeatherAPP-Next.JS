@@ -34,9 +34,9 @@ export default function Home(data) {
 
         <div className={styles.box}>
           <div className={styles.row1}>
-            <div>{data.data.clouds.all}%</div>
-            <div>{data.data.wind.speed}m/s</div>
-            <div>{data.data.main.humidity}%</div>
+            <div><img src='/clouds.svg' /> {data.data.clouds.all}%</div>
+            <div><img src='/wind.svg' /> {data.data.wind.speed}m/s</div>
+            <div><img src='/humidity.svg' /> {data.data.main.humidity}%</div>
           </div>
 
           <div className={styles.temps}>
@@ -67,7 +67,7 @@ export default function Home(data) {
 
 export async function getStaticProps() {
 
-  const fetch = require('node-fetch-with-proxy');
+  //const fetch = require('node-fetch-with-proxy');
 
   // Call an external API endpoint to get data.
   // You can use any data fetching library
