@@ -40,7 +40,7 @@
   align-items: center;
   align-content: center;
 }
-.row1 > div > img {
+.row1 > div > div {
   filter: invert(100%);
   width: 7.5vw;
 }
@@ -70,9 +70,8 @@
 .description {
   text-transform: capitalize;
 }
-.city img {
-  width: 35vw;
-  margin: -5% 0;
+.cityImg {
+  transform: scale(1.15);
 }
 
 .backImage {

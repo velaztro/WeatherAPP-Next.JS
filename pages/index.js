@@ -3,6 +3,9 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useState, useEffect } from 'react'
 import City from '../public/floating.svg'
+import Clouds from '../public/clouds.svg'
+import Wind from '../public/wind.svg'
+import Humidity from '../public/humidity.svg'
 
 export default function Home(data) {
 
@@ -19,8 +22,8 @@ export default function Home(data) {
   useEffect(() => {
     toggle();
   })
-
-  let icon = data.data.weather[0].icon
+  
+  const icon = data.data.weather[0].icon;
 
   return (
     <div className={` ${night ? styles.night : styles.day} `}>
@@ -34,9 +37,9 @@ export default function Home(data) {
 
         <div className={styles.box}>
           <div className={styles.row1}>
-            <div><img src='/clouds.svg' /> {data.data.clouds.all}%</div>
-            <div><img src='/wind.svg' /> {data.data.wind.speed}m/s</div>
-            <div><img src='/humidity.svg' /> {data.data.main.humidity}%</div>
+            <div><Image src={Clouds} /> <span>{data.data.clouds.all}%</span></div>
+            <div><Image src={Wind} /> {data.data.wind.speed}m/s</div>
+            <div><Image src={Humidity}/> {data.data.main.humidity}%</div>
           </div>
 
           <div className={styles.temps}>
@@ -51,7 +54,7 @@ export default function Home(data) {
           <div className={styles.city}>
             <div>{data.data.name}, {data.data.sys.country}</div>
             <div className={styles.description}>{data.data.weather[0].description}</div>
-            <img src = { `http://openweathermap.org/img/wn/` + icon + `@2x.png`} />
+            <div className={styles.cityImg}><Image src={`http://openweathermap.org/img/wn/${icon}@2x.png`} unoptimized='true' width={100} height={100} className={styles.cityImg} /></div>
           </div>
 
           <div className={styles.backImage}>
@@ -72,9 +75,8 @@ export async function getStaticProps() {
   // Call an external API endpoint to get data.
   // You can use any data fetching library
   const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=32.5027&lon=-117.00371&units=metric&appid=${process.env.API}`)
-  const data = await res.json()
-  console.log(data);
-
+  const data = await res.json();
+  
   // Create a new JavaScript Date object based on the timestamp
   // multiplied by 1000 so that the argument is in milliseconds, not seconds.
   // Hours part from the timestamp
