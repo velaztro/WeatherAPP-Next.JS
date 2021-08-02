@@ -10,13 +10,25 @@
 .box {
   width: 80vw;
   height: 70vh;
-  background: #70d1ff;  /* fallback for old browsers */
+  background: rgb(141,209,217);
+  background: linear-gradient(270deg, rgba(141,209,217,1) 0%, rgba(130,203,212,1) 50%, rgba(101,179,197,1) 100%);
+  background: -webkit-linear-gradient(270deg, rgba(141,209,217,1) 0%, rgba(130,203,212,1) 50%, rgba(101,179,197,1) 100%);
   box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.65);
   -webkit-box-shadow: 0px 15px 25px 0px rgba(0,0,0,0.55);
   -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.65);
   padding: 8%;
   color: white;
   font-size: 18px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.day {
+  background-color: #87CEEB;
+}
+.night {
+  background-color: rgb(12, 20, 69);
 }
 
 .row1 {
@@ -28,6 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 5% 0;
 }
 .tempsColumn {
   display: flex;
@@ -45,11 +58,14 @@
   flex-direction: column;
   align-items: center;
 }
-
-.day {
-  background-color: #87CEEB;
+.description {
+  text-transform: capitalize;
 }
-.night {
-  background-color: rgb(12, 20, 69);
+.city img {
+  width: 35vw;
+}
+
+.backImage {
+  margin: 5% 5%;
 }
 

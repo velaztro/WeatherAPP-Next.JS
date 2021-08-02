@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useState, useEffect } from 'react'
+import City from '../public/floating.svg'
 
 export default function Home(data) {
 
@@ -18,6 +19,8 @@ export default function Home(data) {
   useEffect(() => {
     toggle();
   })
+
+  let icon = data.data.weather[0].icon
 
   return (
     <div className={` ${night ? styles.night : styles.day} `}>
@@ -47,7 +50,12 @@ export default function Home(data) {
 
           <div className={styles.city}>
             <div>{data.data.name}, {data.data.sys.country}</div>
-            <div>{data.data.weather[0].description}</div>
+            <div className={styles.description}>{data.data.weather[0].description}</div>
+            <img src = { `http://openweathermap.org/img/wn/` + icon + `@2x.png`} />
+          </div>
+
+          <div className={styles.backImage}>
+            <Image src={City} />
           </div>
 
         </div>
@@ -59,7 +67,8 @@ export default function Home(data) {
 
 export async function getStaticProps() {
 
-  //const fetch = require('node-fetch-with-proxy');
+  const fetch = require('node-fetch-with-proxy');
+
   // Call an external API endpoint to get data.
   // You can use any data fetching library
   const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=32.5027&lon=-117.00371&units=metric&appid=${process.env.API}`)
